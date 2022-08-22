@@ -1,0 +1,39 @@
+.manage {
+  &__list {
+    list-style: none;
+    display: grid;
+    padding: 0;
+    grid-template-columns: 1fr;
+    grid-gap: 30px;
+    margin-bottom: 30px;
+  }
+
+  .section__title {
+    text-align: start;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 45px;
+  }
+
+  .btn {
+    display: flex;
+    justify-content: center;
+    min-width: 100%;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .manage {
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .manage {
+    &__list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

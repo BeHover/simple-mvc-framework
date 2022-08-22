@@ -1,0 +1,53 @@
+version: "3.5"
+
+services:
+  mysql_mvc:
+    image: mysql:5.7
+    container_name: mysql_mvc
+    ports:
+      - "3303:3306"
+    environment:
+      MYSQL_DATABASE: "test"
+      MYSQL_USER: "test"
+      MYSQL_PASSWORD: "test"
+      MYSQL_ROOT_PASSWORD: "test"
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - mvc
+
+  fpm_mvc:
+    container_name: fpm_mvc
+    build:
+      context: .
+      dockerfile: ./docker/fpm/Dockerfile
+    volumes:
+      - ./:/var/www/mvc
+    ports:
+      - "9002:9000"
+    networks:
+      - mvc
+
+  nginx_mvc:
+    container_name: nginx_mvc
+    build:
+      context: ./docker/nginx
+    volumes:
+      - ./docker/nginx/nginx-conf.conf:/etc/nginx/conf.d/default.conf
+      - ./:/var/www/mvc
+      - ./docker/nginx/logs/:/var/log/nginx:cached
+    depends_on:
+      - fpm_mvc
+    links:
+      - fpm_mvc
+    ports:
+      - "8081:80"
+    networks:
+      - mvc
+
+networks:
+  mvc:
+
+volumes:
+  db-data:
+    name: db-data

@@ -1,0 +1,28 @@
+.section {
+  &__title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: $color-dark;
+    text-align: center;
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: $color-gray;
+    text-align: center;
+  }
+
+  &__buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    margin-top: 40px;
+
+    .btn {
+      text-align: center;
+    }
+  }
+}

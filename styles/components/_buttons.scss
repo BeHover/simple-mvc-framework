@@ -1,0 +1,67 @@
+.btn {
+  box-shadow: none;
+  padding: 11px 19px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  transition-property: border-color, background-color, color;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+
+  &.btn--primary {
+    color: $color-white;
+    background-color: $color-primary;
+    border: 1px solid $color-primary;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $color-white;
+    }
+
+    &:hover {
+      background-color: $color-primary-hover;
+      border-color: $color-primary-hover;
+    }
+
+    &:active {
+      background-color: $color-primary-focus;
+      border-color: $color-primary-focus;
+    }
+
+    &:disabled {
+      background-color: $color-primary-disabled;
+      border-color: $color-primary-disabled;
+      cursor: default;
+    }
+  }
+
+  &.btn--secondary {
+    color: $color-white;
+    background-color: $color-secondary;
+    border: 1px solid $color-secondary;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $color-white;
+    }
+
+    &:hover {
+      background-color: $color-secondary-hover;
+      border-color: $color-secondary-hover;
+    }
+
+    &:active {
+      background-color: $color-secondary-focus;
+      border-color: $color-secondary-focus;
+    }
+
+    &:disabled {
+      background-color: $color-secondary-disabled;
+      border-color: $color-secondary-disabled;
+      cursor: default;
+    }
+  }
+}
